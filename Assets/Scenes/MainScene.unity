@@ -331,9 +331,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.08388036, g: 0.09066614, b: 0.19245279, a: 1}
+  m_Color: {r: 0.0443218, g: 0.061371587, b: 0.2830189, a: 0.63529414}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -647,6 +647,7 @@ GameObject:
   - component: {fileID: 1044739322}
   - component: {fileID: 1044739324}
   - component: {fileID: 1044739323}
+  - component: {fileID: 1044739325}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -770,6 +771,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044739321}
   m_CullTransparentMesh: 1
+--- !u!114 &1044739325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044739321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9469fed55036483499adca4ed66a1630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myText: {fileID: 1044739323}
 --- !u!1 &1094453854
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A typical cow weights XXX kg. on Earth!
+  m_text: A typical cow weights 650 kg. on Earth!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1150,7 +1164,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5b109ae8ca27a0d47b4be3e7b780c1a9, type: 3}
   m_Color: {r: 0.4264151, g: 0.4264151, b: 0.4264151, a: 1}
   m_FlipX: 0
