@@ -8,21 +8,19 @@ public class RotateScroll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount == 1)
+        if (Input.touchCount == 1)
         {
-            Debug.Log("Touched!");
-
             Touch screenTouch = Input.GetTouch(0);
 
-            if(screenTouch.phase == TouchPhase.Moved)
+            if (screenTouch.phase == TouchPhase.Moved)
             {
-                transform.Rotate(0f, 0f, -screenTouch.deltaPosition.x*speed);
+                transform.Rotate(0f, 0f, -screenTouch.deltaPosition.x * speed);
             }
         }
     }
