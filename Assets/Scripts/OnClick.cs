@@ -1,34 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class OnClick : MonoBehaviour
 {
     public float speed = 5f;
     private Vector2 startPos;
-    private Vector2 EndPos;
-    bool movingRight = true;
-    Vector2 target;
+    private Vector2 endPos;
+    private Vector2 target;
+    bool isMoving = false;
+
     void Start()
     {
         startPos = transform.position;
-        
+        endPos = new Vector2(0.28f, startPos.y);
+        target = startPos;
+
     }
 
-    // Update is called once per frame
+    private void OnMouseDown()
+    {
+        target = (target == startPos) ? endPos : startPos;
+        isMoving = true;
+        Debug.Log("Clicked!");
+    }
     void Update()
     {
-       // EndPos = startPos;
-        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (isMoving)
         {
-            EndPos = new Vector2(0.28f, startPos.y);
-            //movingRight = !movingRight;
-            //target = movingRight ? EndPos : startPos;
+            transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
         }
-       
-        transform.position = Vector2.MoveTowards(transform.position, EndPos, speed * Time.deltaTime);
-
 
     }
 }

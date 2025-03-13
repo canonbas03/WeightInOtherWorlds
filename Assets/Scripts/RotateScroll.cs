@@ -5,13 +5,10 @@ using UnityEngine;
 public class RotateScroll : MonoBehaviour
 {
     public float speed = 0.01f;
-    // Start is called before the first frame update
-    void Start()
-    {
+    public float friction = 0.95f;
 
-    }
+    private float angularVelocity = 0f;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.touchCount == 1)
@@ -20,8 +17,10 @@ public class RotateScroll : MonoBehaviour
 
             if (screenTouch.phase == TouchPhase.Moved)
             {
-                transform.Rotate(0f, 0f, -screenTouch.deltaPosition.x * speed);
+                angularVelocity = -screenTouch.deltaPosition.x * speed;
             }
         }
+        transform.Rotate(0f, 0f, angularVelocity);
+        angularVelocity *= friction;
     }
 }
