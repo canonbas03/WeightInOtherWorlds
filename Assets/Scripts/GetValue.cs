@@ -10,7 +10,8 @@ public class GetValue : MonoBehaviour
     [SerializeField] TextMeshProUGUI myText;
     public void KeepValue()
     {
-        string dataToKeep = myText.text;
+        int dataToKeep;
+        int.TryParse(myText.text, out dataToKeep);
         Debug.Log(dataToKeep);
         StaticData.valueToKeep = dataToKeep;
 

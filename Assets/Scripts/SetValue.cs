@@ -10,7 +10,7 @@ public class SetValue : MonoBehaviour
 
     public void Start()
     {
-        string newText = StaticData.valueToKeep;
+        int newText = StaticData.valueToKeep;
         myText.text = $"On Earth you weight {newText} kg. Unbelievable, right?";
     }
 }

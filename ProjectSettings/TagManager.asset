@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Detector
+  - Earth
+  - Mercury
+  - Venera
+  - Mars
+  - Jupiter
+  - Saturn
+  - Uran
+  - Neptune
   layers:
   - Default
   - TransparentFX

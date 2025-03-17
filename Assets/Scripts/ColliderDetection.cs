@@ -18,7 +18,7 @@ public class ColliderDetection : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        string newText = StaticData.valueToKeep;
+        int earthWeight = StaticData.valueToKeep;
         if (collision.gameObject.tag == "Detector")
         {
             sRenderer.color = Color.white;
@@ -27,35 +27,42 @@ public class ColliderDetection : MonoBehaviour
 
             if(gameObject.tag == "Earth")
             {
-                textToModify.text = $"On Earth you weight {newText} kg. Unbelievable, right? 000";
+                textToModify.text = $"On Earth you weight {earthWeight} kg. Unbelievable, right?";
             }
             if (gameObject.tag == "Mercury")
             {
-                textToModify.text = $"On Mercury you weight {newText} kg. Unbelievable, right? 000";
+                float mercuryWeight = earthWeight * 0.38f;
+                textToModify.text = $"On Mercury you weigh {mercuryWeight} kg. Light as a feather!";
             }
             if (gameObject.tag == "Venera")
             {
-                textToModify.text = $"On Venera you weight {newText} kg. Unbelievable, right? 000";
+                float veneraWeight = earthWeight * 0.91f;
+                textToModify.text = $"On Venus you weigh {veneraWeight} kg. Heavy and hot!";
             }
             if (gameObject.tag == "Mars")
             {
-                textToModify.text = $"On Mars you weight {newText} kg. Unbelievable, right? 000";
+                float marsWeight = earthWeight * 0.38f;
+                textToModify.text = $"On Mars you weigh {marsWeight} kg. Time to bounce around!";
             }
             if (gameObject.tag == "Jupiter")
             {
-                textToModify.text = $"On Jupiter you weight {newText} kg. Unbelievable, right? 000";
+                float jupiterWeight = earthWeight * 2.34f;
+                textToModify.text = $"On Jupiter you weigh {jupiterWeight} kg. Feeling super heavy!";
             }
             if (gameObject.tag == "Saturn")
             {
-                textToModify.text = $"On Saturn you weight {newText} kg. Unbelievable, right? 000";
+                float saturnWeight = earthWeight * 0.93f;
+                textToModify.text = $"On Saturn you weigh {saturnWeight} kg. Rings can't hold you down!";
             }
             if (gameObject.tag == "Uran")
             {
-                textToModify.text = $"On Uranus you weight {newText} kg. Unbelievable, right? 000";
+                float uranWeight = earthWeight * 0.92f;
+                textToModify.text = $"On Uranus you weigh {uranWeight} kg. Ice cold and light!";
             }
             if (gameObject.tag == "Neptune")
             {
-                textToModify.text = $"On Neptune you weight {newText} kg. Unbelievable, right? 000";
+                float neptuneWeight = earthWeight * 1.12f;
+                textToModify.text = $"On Neptune you weigh {neptuneWeight} kg. Deep blue and dense!";
             }
            
         }
