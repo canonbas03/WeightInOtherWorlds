@@ -7,13 +7,14 @@ public class OnClick : MonoBehaviour
     private Vector2 endPos;
     private Vector2 target;
     bool isMoving = false;
-
+    AudioSource AudioSource;
+    bool isMOO = true;
     void Start()
     {
         startPos = transform.position;
         endPos = new Vector2(0.28f, startPos.y);
         target = startPos;
-
+        AudioSource = GetComponent<AudioSource>();
     }
 
     private void OnMouseDown()
@@ -21,6 +22,12 @@ public class OnClick : MonoBehaviour
         target = (target == startPos) ? endPos : startPos;
         isMoving = true;
         Debug.Log("Clicked!");
+        if (isMOO)
+        {
+            AudioSource.Play();
+           
+        }
+        isMOO = !isMOO;
     }
     void Update()
     {
