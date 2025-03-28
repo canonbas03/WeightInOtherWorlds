@@ -22,6 +22,7 @@ public class OnClick : MonoBehaviour
         target = (target == startPos) ? endPos : startPos;
         isMoving = true;
         Debug.Log("Clicked!");
+
         if (isMOO)
         {
             AudioSource.Play();
