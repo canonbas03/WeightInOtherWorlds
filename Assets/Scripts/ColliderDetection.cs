@@ -6,14 +6,20 @@ using UnityEngine;
 public class ColliderDetection : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textToModify;
+    AudioSource AudioSource;
+    AudioClip[] AudioClips;
     private SpriteRenderer sRenderer;
     private Transform mTransform;
+
 
     void Start()
     {
         sRenderer = GetComponent<SpriteRenderer>();
         mTransform = GetComponent<Transform>();
-        
+
+        AudioSource = GameObject.FindGameObjectWithTag("Detector").GetComponent<AudioSource>();
+        AudioClips = GameObject.FindGameObjectWithTag("Detector").GetComponent<MultipleAudio>().audioClips;
+
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,11 +27,13 @@ public class ColliderDetection : MonoBehaviour
         int earthWeight = StaticData.valueToKeep;
         if (collision.gameObject.tag == "Detector")
         {
-            sRenderer.color = Color.white;
-            mTransform.localScale = new Vector3(mTransform.localScale.x, mTransform.localScale.y, mTransform.localScale.z)*2;
-           
+            PlayAudio();
 
-            if(gameObject.tag == "Earth")
+            sRenderer.color = Color.white;
+            mTransform.localScale = new Vector3(mTransform.localScale.x, mTransform.localScale.y, mTransform.localScale.z) * 2;
+
+
+            if (gameObject.tag == "Earth")
             {
                 textToModify.text = $"On Earth you weight {earthWeight} kg. Unbelievable, right?";
             }
@@ -64,7 +72,9 @@ public class ColliderDetection : MonoBehaviour
                 float neptuneWeight = earthWeight * 1.12f;
                 textToModify.text = $"On Neptune you weigh {neptuneWeight} kg. Deep blue and dense!";
             }
+
            
+
         }
 
     }
@@ -75,4 +85,12 @@ public class ColliderDetection : MonoBehaviour
         sRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f);
         mTransform.localScale = new Vector3(mTransform.localScale.x, mTransform.localScale.y, mTransform.localScale.z) / 2;
     }
+
+    void PlayAudio()
+    {
+      
+        int selected = Random.Range(0, AudioClips.Length);
+        AudioSource.PlayOneShot(AudioClips[selected]);
+    }
+
 }
