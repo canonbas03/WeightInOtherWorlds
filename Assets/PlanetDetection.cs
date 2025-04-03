@@ -11,7 +11,21 @@ public class PlanetDetection : MonoBehaviour
     AudioClip[] AudioClips;
     private SpriteRenderer sRenderer;
     private Transform mTransform;
+    private GameObject currentPrefab;
 
+    [SerializeField] GameObject[] widgetPrefabs;  // Array of GameObjects storing prefabs
+
+    Dictionary<string, int> planetIndex = new Dictionary<string, int>
+        {
+            {"Earth",    0},
+            {"Mercury",  0},
+            {"Venera",   0},
+            {"Mars",     1},
+            {"Jupiter",  0},
+            {"Saturn",   0},
+            {"Uran",     0},
+            {"Neptune",  0}
+        };
     void Start()
     {
         AudioSource = GameObject.FindGameObjectWithTag("Detector").GetComponent<AudioSource>();
@@ -23,7 +37,7 @@ public class PlanetDetection : MonoBehaviour
         sRenderer = collision.GetComponent<SpriteRenderer>();
         mTransform = collision.GetComponent<Transform>();
 
-        
+
 
         int earthWeight = StaticData.valueToKeep;
         PlayAudio();
@@ -47,8 +61,20 @@ public class PlanetDetection : MonoBehaviour
 
             sRenderer.color = Color.white;
             mTransform.localScale *= 2;
-
         }
+
+        if (planetIndex.TryGetValue(collision.gameObject.tag, out int index))
+        {
+            if (currentPrefab != null)
+            {
+                Destroy(currentPrefab);
+                Debug.Log("There is a prefab");
+            }
+
+            currentPrefab = Instantiate(widgetPrefabs[index]);
+        }
+
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -56,7 +82,7 @@ public class PlanetDetection : MonoBehaviour
         sRenderer = collision.GetComponent<SpriteRenderer>();
         mTransform = collision.GetComponent<Transform>();
         sRenderer.color = new Color(0.4f, 0.4f, 0.4f, 1f);
-        mTransform.localScale /=  2;
+        mTransform.localScale /= 2;
     }
 
     void PlayAudio()
