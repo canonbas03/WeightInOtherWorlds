@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 7962631158597565800}
   - component: {fileID: 6766200806177437671}
   m_Layer: 0
-  m_Name: CowUI
+  m_Name: CloudUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,9 +260,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 90093d43bff1ac5409103809f496ea5d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 44d8290ef8ee02e43951a23bca2a7f25, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.452
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -464,8 +464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -284.8, y: -45.8}
-  m_SizeDelta: {x: 174.5, y: 178.4}
+  m_AnchoredPosition: {x: -284.92, y: -45.8}
+  m_SizeDelta: {x: 174.68, y: 178.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2295965063588967248
 CanvasRenderer:
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A typical cow weights 650 kg. on Earth!
+  m_text: A cloud weights 465000 kg.on Saturn!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 6283186018035546340}
   - component: {fileID: 1147269214877404665}
   m_Layer: 0
-  m_Name: cowHead
+  m_Name: icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,8 +590,8 @@ Transform:
   m_GameObject: {fileID: 8734173110559154094}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.047999807, y: -0.34378433, z: 0}
-  m_LocalScale: {x: 0.018263722, y: 0.029999992, z: 0.03}
+  m_LocalPosition: {x: 0.048, y: -0.553, z: 0}
+  m_LocalScale: {x: 0.09000001, y: 0.14783402, z: 0.14783402}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3039529189605691662}
@@ -637,7 +637,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: a0a8aa9df5eadf84fbd9f4600d6b8cf4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fdfa8d37ef406b941bdb3636ecb0f3ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

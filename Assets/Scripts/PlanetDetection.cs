@@ -18,13 +18,13 @@ public class PlanetDetection : MonoBehaviour
     Dictionary<string, int> planetIndex = new Dictionary<string, int>
         {
             {"Earth",    0},
-            {"Mercury",  0},
-            {"Venera",   0},
-            {"Mars",     1},
-            {"Jupiter",  0},
-            {"Saturn",   0},
-            {"Uran",     0},
-            {"Neptune",  0}
+            {"Mercury",  1},
+            {"Venera",   2},
+            {"Mars",     3},
+            {"Jupiter",  4},
+            {"Saturn",   5},
+            {"Uran",     6},
+            {"Neptune",  7}
         };
     void Start()
     {
@@ -65,10 +65,9 @@ public class PlanetDetection : MonoBehaviour
 
         if (planetIndex.TryGetValue(collision.gameObject.tag, out int index))
         {
-            if (currentPrefab != null)
+            if (currentPrefab != null) // A check to prevent duplicates
             {
                 Destroy(currentPrefab);
-                Debug.Log("There is a prefab");
             }
 
             currentPrefab = Instantiate(widgetPrefabs[index]);
