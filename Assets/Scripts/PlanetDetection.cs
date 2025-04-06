@@ -46,7 +46,7 @@ public class PlanetDetection : MonoBehaviour
         {
             { "Mercury",(0.38f,"On Mercury you weigh {0} kg. Light as a feather!")},
             { "Venera", (0.91f,"On Venus you weigh {0} kg. Heavy and hot!")},
-            { "Earth",  (1f,   "On Earth you weight {0} kg. Unbelievable, right?")},
+            { "Earth",  (1f,   "On Earth you weigh {0} kg. Unbelievable, right?")},
             { "Mars",   (0.38f,"On Mars you weigh {0} kg. Time to bounce around!")},
             { "Jupiter",(2.34f,"On Jupiter you weigh {0} kg. Feeling super heavy!")},
             { "Saturn", (0.93f,"On Saturn you weigh {0} kg. Rings can't hold you down!")},
