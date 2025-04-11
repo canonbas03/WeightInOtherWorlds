@@ -13,6 +13,8 @@ public class PlanetDetection : MonoBehaviour
     private Transform mTransform;
     private GameObject currentPrefab;
 
+    static string tagName = string.Empty;
+
     [SerializeField] GameObject[] widgetPrefabs;  // Array of GameObjects storing prefabs
 
     Dictionary<string, int> planetIndex = new Dictionary<string, int>
@@ -32,8 +34,12 @@ public class PlanetDetection : MonoBehaviour
         AudioClips = GameObject.FindGameObjectWithTag("Detector").GetComponent<MultipleAudio>().audioClips;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
+        tagName = collision.gameObject.tag;
+
+        //HoldDownDetect.ShowInfo(collision.gameObject.tag);
+
         sRenderer = collision.GetComponent<SpriteRenderer>();
         mTransform = collision.GetComponent<Transform>();
 
@@ -89,5 +95,10 @@ public class PlanetDetection : MonoBehaviour
 
         int selected = Random.Range(0, AudioClips.Length);
         AudioSource.PlayOneShot(AudioClips[selected]);
+    }
+
+    public string tagGiver()
+    {
+        return tagName;
     }
 }
