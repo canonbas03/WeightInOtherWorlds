@@ -33,6 +33,7 @@ public class HoldDownDetect : MonoBehaviour
             Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
             Debug.Log(touchPos);
 
+            Collider2D hit = Physics2D.OverlapPoint(touchPos);
 
             if (hit != null && hit.gameObject == gameObject)
             {
