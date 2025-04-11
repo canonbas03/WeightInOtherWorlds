@@ -19,6 +19,7 @@ public class OnClick : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (Time.timeScale == 0) return;
         target = (target == startPos) ? endPos : startPos;
         isMoving = true;
         Debug.Log("Clicked!");
@@ -32,6 +33,7 @@ public class OnClick : MonoBehaviour
     }
     void Update()
     {
+        if (Time.timeScale == 0) return;
         if (isMoving)
         {
             transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);

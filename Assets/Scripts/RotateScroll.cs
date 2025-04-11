@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RotateScroll : MonoBehaviour
 {
+
     public float speed = 0.01f;
     public float friction = 0.95f;
 
@@ -11,6 +12,7 @@ public class RotateScroll : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
         if (Input.touchCount == 1)
         {
             Touch screenTouch = Input.GetTouch(0);

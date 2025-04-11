@@ -6,8 +6,9 @@ using UnityEngine;
 public class HoldDownDetect : MonoBehaviour
 {
     public PlanetDetection PlanetDetection;
+    public bool panelOn = false;
 
-    public static GameObject panel;
+    public GameObject panel;
 
     string currentPlanet = "";
     public static bool show = false;
@@ -17,11 +18,11 @@ public class HoldDownDetect : MonoBehaviour
     float counter = 0f;
     static bool isHeld = false;
 
-    private void OnMouseExit()
-    {
-        counter = 0f;
-        isHeld = false;
-    }
+    //private void OnMouseExit()
+    //{
+    //    counter = 0f;
+    //    isHeld = false;
+    //}
 
     void Update()
     {
@@ -47,6 +48,7 @@ public class HoldDownDetect : MonoBehaviour
                         Debug.Log("is held");
                         // ShowInfo(PlanetDetection.tagGiver());
                         ShowInfo();
+                       
                     }
                 }
             }
@@ -55,6 +57,9 @@ public class HoldDownDetect : MonoBehaviour
         {
             counter = 0f;
             isHeld = false;
+            panelOn = false;
+            //ShowInfo();
+            //Time.timeScale = 1f;
         }
     }
 
@@ -62,11 +67,14 @@ public class HoldDownDetect : MonoBehaviour
     {
         string text = PlanetDetection.tagGiver();
         Debug.Log(text);
+        panel.SetActive(isHeld);
+        Time.timeScale = 0f;
+        panelOn = true;
     }
-    //public void ShowInfo(string planet)
-    //{
-    //    //if (isHeld == true)
-    //        Debug.Log(planet + " number");
-    //    panel.SetActive(isHeld);
-    //}
+    
+    public void pauseGame()
+    {
+        Time.timeScale = 1f;
+        panelOn = false;
+    }
 }
