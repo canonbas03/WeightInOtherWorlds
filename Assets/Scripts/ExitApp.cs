@@ -7,6 +7,10 @@ public class ExitApp : MonoBehaviour
 {
     private void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))  // Escape is back key in mobile by defoult
         {
             if (SceneManager.GetActiveScene().buildIndex == 0) // 0 is Main Scene
