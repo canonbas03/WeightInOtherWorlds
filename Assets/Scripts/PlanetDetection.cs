@@ -17,7 +17,7 @@ public class PlanetDetection : MonoBehaviour
 
     [SerializeField] GameObject[] widgetPrefabs;  // Array of GameObjects storing prefabs
 
-    Dictionary<string, int> planetIndex = new Dictionary<string, int>
+    public Dictionary<string, int> planetIndex = new Dictionary<string, int>
         {
             {"Earth",    0},
             {"Mercury",  1},
@@ -34,7 +34,7 @@ public class PlanetDetection : MonoBehaviour
         AudioClips = GameObject.FindGameObjectWithTag("Detector").GetComponent<MultipleAudio>().audioClips;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         tagName = collision.gameObject.tag;
 

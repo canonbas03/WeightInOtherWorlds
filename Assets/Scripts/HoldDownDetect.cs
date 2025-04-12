@@ -1,54 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class HoldDownDetect : MonoBehaviour
 {
+    [SerializeField] GameObject[] panelPrefabs;
+    [SerializeField] GameObject parentCanvas;
     public PlanetDetection PlanetDetection;
-    public bool panelOn = false;
 
-    public GameObject panel;
-
-    string currentPlanet = "";
-    public static bool show = false;
-    public bool active = false;
+    public GameObject currentPrefab;
 
     public float holdTime = 1f;
     float counter = 0f;
-    static bool isHeld = false;
-
-    //private void OnMouseExit()
-    //{
-    //    counter = 0f;
-    //    isHeld = false;
-    //}
+    bool isHeld = false;
 
     void Update()
     {
         if (Input.touchCount > 0)
         {
-            Debug.Log("is touched");
             Touch touch = Input.GetTouch(0);
 
             Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-            Debug.Log(touchPos);
 
             Collider2D hit = Physics2D.OverlapPoint(touchPos);
 
             if (hit != null && hit.gameObject == gameObject)
             {
-                Debug.Log("is gameobject");
                 if (touch.phase == TouchPhase.Stationary)
                 {
                     counter += Time.deltaTime;
                     if (counter > holdTime)
                     {
                         isHeld = true;
-                        Debug.Log("is held");
-                        // ShowInfo(PlanetDetection.tagGiver());
+
                         ShowInfo();
-                       
                     }
                 }
             }
@@ -57,24 +45,25 @@ public class HoldDownDetect : MonoBehaviour
         {
             counter = 0f;
             isHeld = false;
-            panelOn = false;
-            //ShowInfo();
-            //Time.timeScale = 1f;
         }
+
+
     }
 
     public void ShowInfo()
     {
-        string text = PlanetDetection.tagGiver();
-        Debug.Log(text);
-        panel.SetActive(isHeld);
+        if (PlanetDetection.planetIndex.TryGetValue(PlanetDetection.tagGiver(), out int index))
+        {
+            if (currentPrefab != null) // A check to prevent duplicates
+            {
+                Destroy(currentPrefab);
+            }
+
+            currentPrefab = Instantiate(panelPrefabs[index], parentCanvas.transform);
+            Debug.Log($"Current Index: {index}, {PlanetDetection.tagGiver()}");
+        }
+
+        currentPrefab.SetActive(isHeld);
         Time.timeScale = 0f;
-        panelOn = true;
-    }
-    
-    public void pauseGame()
-    {
-        Time.timeScale = 1f;
-        panelOn = false;
     }
 }
