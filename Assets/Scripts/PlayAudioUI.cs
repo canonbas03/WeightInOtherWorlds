@@ -14,10 +14,7 @@ public class PlayAudioUI : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioClip = GetComponent<AudioClip>();
         delay = audioClip.length;
-
-        
     }
 
   public void Timer()
@@ -28,6 +25,6 @@ public class PlayAudioUI : MonoBehaviour
 
    public void changeScene()
     {
-        ChangeScene.LoadScene();
+        SceneManager.LoadScene("MainScene");
     }
 }

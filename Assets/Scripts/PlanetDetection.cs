@@ -13,7 +13,7 @@ public class PlanetDetection : MonoBehaviour
     private Transform mTransform;
     private GameObject currentPrefab;
 
-    static string tagName = string.Empty;
+    static string tagName = "Earth";  // First Planet on UI
 
     [SerializeField] GameObject[] widgetPrefabs;  // Array of GameObjects storing prefabs
 
