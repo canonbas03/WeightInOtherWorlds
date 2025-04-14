@@ -26,3 +26,5 @@ public class RotateScroll : MonoBehaviour
         angularVelocity *= friction;
     }
 }
+
+
